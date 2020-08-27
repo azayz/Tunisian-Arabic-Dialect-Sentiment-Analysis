@@ -60,7 +60,7 @@ def build_model(transformer, max_len=512):
     
     return model
 def train(): 
-    data = pd.read_csv('../input/vneuron/extra_train_data.csv')
+    data = pd.read_csv('final_data.csv')
 
     #tokenizer = AutoTokenizer.from_pretrained(MODEL)
     tokenizer = transformers.DistilBertTokenizer.from_pretrained('distilbert-base-multilingual-cased')
