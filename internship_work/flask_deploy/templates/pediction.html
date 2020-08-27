@@ -1,0 +1,39 @@
+
+{% extends "base.html" %}
+{% block title %}Tunisian dialect sentiment analysis{% endblock %}
+{% block content %}
+
+
+    <h1> Satisfaction du client </h1>
+    <br>
+    {% if preds[0][0] > 0.8 %}
+  
+
+    <div class="progress" style="height: 50px;border-radius: 20px">
+        <div class="progress-bar bg-success" role="progressbar" style="width:80%;height: 50px;border-radius: 20px">
+            {{ preds[0][0] }}
+        </div>
+    </div>    
+
+    {% elif preds[0][0] < 0.3 %}
+
+    <div class="progress" style="height: 50px;border-radius: 20px">
+        <div class="progress-bar bg-danger" role="progressbar" style="width:20%;height: 50px;border-radius: 20px">
+            {{ preds[0][0] }}
+        </div>
+    </div> 
+
+    {% else %}
+
+    <div class="progress" style="height: 50px;border-radius: 20px">
+        <div class="progress-bar bg-warning" role="progressbar" style="width:50%;height: 50px;border-radius: 20px">
+            {{ preds[0][0] }}
+        </div>
+    </div> 
+
+    {% endif %}
+    <br>
+
+    <a href="{{ url_for('index') }}"><button type="button" class="btn btn-outline-dark">Back</button></a> 
+
+{% endblock %}
